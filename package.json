@@ -1,0 +1,19 @@
+{
+  "name": "getrekt",
+  "version": "1.0.0",
+  "description": "a place for gamer to share content",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheJMaster28/GetRekt.com.git"
+  },
+  "author": "Auto Gerg 2 the Electric Boogaloo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheJMaster28/GetRekt.com/issues"
+  },
+  "homepage": "https://github.com/TheJMaster28/GetRekt.com#readme"
+}
