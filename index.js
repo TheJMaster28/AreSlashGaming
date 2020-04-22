@@ -13,10 +13,6 @@ var User = require('./models/user');
 
 app.use(express.static('public'));
 
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + 'public/index.html');
-});
-
 /* passport set up */
 const passport = require("passport");
 app.use(passport.initialize());
@@ -41,8 +37,12 @@ io.on('connection', function (socket) {
         passport.use(googleStrategy);
 
         //authenticate user through google redirect
-        app.get('/auth/google', passport.authenticate('google', {scope:['https://www.googleapis.com/auth/plus.login']}));
+        app.get('/auth/google', passport.authenticate('google', {scope:['https://www.googleapis.com/auth/userinfo.profile']}));
     });
+});
+
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + 'public/index.html');
 });
 
 http.listen(port, function () {

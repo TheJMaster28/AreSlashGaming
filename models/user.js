@@ -1,5 +1,7 @@
-const User = {
-    "googleId": null,
-    "googleProfile": null,
-    "googleAccessToken": null
-}
+module.exports = {
+    User: {
+        "googleId": null,
+        "googleProfile": null,
+        "googleAccessToken": null
+    }
+} 
