@@ -1,10 +1,13 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const googleConfig = require('./OAuth/config.js');
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 var port = 3000;
+
+/* google OAuth set up */
+const googleConfig = require("./OAuth/config");
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var User = require('./models/user');
 
@@ -14,12 +17,31 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + 'public/index.html');
 });
 
+/* passport set up */
+const passport = require("passport");
+app.use(passport.initialize());
+app.use(passport.session());
+
 io.on('connection', function (socket) {
     console.log('a user has connected');
     io.emit('hello_world');
 
     socket.on('login', function () {
         console.log('a user wants to login');
+        var googleStrategy = new GoogleStrategy({
+            clientID: config.googleKey,
+            clientSecret: config.googleSecret,
+            callbackURL: "http://localhost:3000/auth/google/callback"    
+        }, function (accessToken, refreshToken, profile, done) {
+            googleUser.googleId = profile.id;
+            googleUser.googleProfile = profile;
+            googleUser.googleAccessToken = accessToken;
+        });
+        
+        passport.use(googleStrategy);
+
+        //authenticate user through google redirect
+        app.get('/auth/google', passport.authenticate('google', {scope:['https://www.googleapis.com/auth/plus.login']}));
     });
 });
 
