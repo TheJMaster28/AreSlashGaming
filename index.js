@@ -18,7 +18,7 @@ io.on('connection', function (socket) {
     console.log('a user has connected');
     io.emit('hello_world');
 
-    io.on('login', function () {
+    socket.on('login', function () {
         console.log('a user wants to login');
     });
 });
