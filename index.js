@@ -27,7 +27,7 @@ io.on('connection', function (socket) {
         var googleStrategy = new GoogleStrategy({
             clientID: googleConfig.googleKey,
             clientSecret: googleConfig.googleSecret,
-            callbackURL: "http://localhost:3000/auth/google/callback"    
+            callbackURL: "http://localhost:3000/index.html"    
         }, function (accessToken, refreshToken, profile, done) {
             googleUser.googleId = profile.id;
             googleUser.googleProfile = profile;
