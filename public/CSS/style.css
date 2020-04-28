@@ -1,0 +1,86 @@
+
+
+#container{
+    width: 800px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Header {
+    height: 150px;
+    background-color: #4A96BD;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    line-height: 140px;
+    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+#menu {
+    height: 60px;
+    background-color: grey;
+    outline: teal;
+    outline-width: 10px;
+
+}
+/*#sidebar {
+    width: 150px;
+    height: 1000px;
+    background-color: grey;
+    float: left;
+    color: grey;
+    font-size: 30px;
+    white-space: pre-line;
+    position: relative;
+    top: 100px;
+    left: 1800px;
+    text-decoration: none;
+    list-style-type: none;
+    float: left;
+    display: block;
+    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+
+        <div id = "sidebar">
+
+        <ul>
+            <li><a href = "#">Login</li>
+            <li><a href = "#">Popular</li>
+            <li><a href = "#">About</li>
+        </ul>
+
+    </div>
+
+
+} REMOVING SIDEBAR TILL DESIGN IS BETTER*/
+
+#mainbody {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    color: white;
+    font-size: 30px;
+
+}
+
+#feed {
+    width: 60%;
+    height: 4000px;
+    background-color: grey;
+    color: black;
+    position: relative;
+    left: 20%;
+    top: 100px;
+    text-align: center;
+    border: solid black;
+}
+
+#footer {
+    height: 100px;
+    margin-bottom: 21px;
+    background-color: #4A96BD;
+    clear: both;
+    color: white;
+    font-size: 50px;
+    position: relative;
+}

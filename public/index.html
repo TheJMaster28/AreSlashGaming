@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>GamerGetRekt</title>
-        <link rel="stylesheet" type="text/css" href="style.css" />
-    </head>
-    <body>
+<head>
+<title>Home</title>
+<link rel="stylesheet" type="text/css" href="CSS/style.css" />
+<link rel="stylesheet" type="text/css" href="CSS/menu.css" />
+<link rel="stylesheet" type="text/css" href="CSS/800px.css" media = "screen and (max width: 800px)" />
 
-        <div>
-            <ul>
-                <!-- LIST FOR NAV BAR -->
-                <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="login.html">Login</a></li>
-              </ul>
-        </div>
-        <h1>Welcome!</h1>
-        <!-- <button type="button" id="googleLogin" onclick="login()" href="./auth/google">Login with Google!</button> -->
-        <a href= "./auth/google" onclick="login()">Login with Google!</a>
-    </body>
-    <script src="/socket.io/socket.io.js"></script>
+<script src="/socket.io/socket.io.js"></script>
     <script>
         const socket = io();
         window.onload = function () {
@@ -29,5 +17,34 @@
         function login() {
             socket.emit('login');
         }
-    </script>
+</script>
+
+</head>
+<style>
+
+body {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+</style>
+<body>
+    <div id = "container"></div>
+    <div id = "Header">GAMERGETREKT</div>
+    <div id = "menu"> 
+        <ul>
+            <li><a href = "index.html">Home</li>
+            <li><a href = "profile.html">Profile</li>
+            <li><a href = "#">About</li>
+            <li><a href= "./auth/google" onclick="login()">Login with Google!</a></li>
+        </ul>
+    </div>
+    
+    <div id = "mainbody">
+        <div id = "feed"> this is the feed (for now) <p> </p></div>
+    </div>
+    <div id = "footer">FOOTER</div>
+</body>
 </html>

@@ -1,0 +1,16 @@
+/*THIS CSS STYLESHEET IS FOR RESPONSIVE LAYOUT*/
+#container {
+    width: 300px;
+}
+
+#sidebar {
+    width: 100px;
+}
+
+#mainbody {
+    width: 200px;
+}
+
+#feed {
+    width: 20%;
+}
