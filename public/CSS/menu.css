@@ -3,6 +3,8 @@
     background-color: grey;
     outline: teal;
     outline-width: 10px;
+    border: solid black;
+    border-width: 5px;
 }
 
 #menu ul {
