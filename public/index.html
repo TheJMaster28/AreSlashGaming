@@ -29,8 +29,9 @@
 </script>
 
 </head>
-<style>
 
+<style>
+/* This styling is for basic margin setup of page */
 body {
     margin-left: 0px;
     margin-right: 0px;
@@ -39,10 +40,13 @@ body {
 }
 
 </style>
+
 <body>
     <div id = "container"></div>
     <div id = "Header"><img id ="imgLogo" src="theme/GR_Logo_Final.png"></div>
+    <!-- 'menu' id is the navigation bar -->
     <div id = "menu"> 
+        <!-- unordered list for the nav bar -->
         <ul>
             <li><a href = "index.html">Home</li>
             <li><a href = "profile.html">Profile</li>
@@ -50,7 +54,8 @@ body {
             <li><a href= "./auth/google" onclick="login()">Login with Google!</a></li>
         </ul>
     </div>
-    
+
+    <!-- Start "mainbody" div -->
     <div id = "mainbody">
         <div id = "PostCreator">
             <form name="CreatePost" onsubmit=" return createPost()">
@@ -79,10 +84,10 @@ body {
                 <input type="submit" value="Submit">
             </form>
         </div>
-
-        <div id = "feed">
-        </div>
+        <div id = "feed"></div>
     </div>
+    <!-- end "mainbody div" -->
+    
     <div id = "footer">FOOTER</div>
 </body>
 </html>
