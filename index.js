@@ -43,7 +43,8 @@ io.on('connection', function (socket) {
         app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile'] }));
     });
 
-    socket.on('create post', function () {
+    socket.on('create post', function (data) {
+        console.log(data);
         console.log('user wants to create post');
     });
 });

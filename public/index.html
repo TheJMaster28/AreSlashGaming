@@ -18,7 +18,13 @@
             socket.emit('login');
         }
         function createPost() {
-            socket.emit('create post')
+            var form = document.forms["CreatePost"]
+            if (form["postText"].value == "") {
+                alert("Cannot create empty post");
+                return false;
+            }
+
+            socket.emit('create post', {text:form["postText"].value});
         }
 </script>
 
@@ -47,7 +53,7 @@ body {
     
     <div id = "mainbody">
         <div id = "PostCreator">
-            <form>
+            <form name="CreatePost" onsubmit=" return createPost()">
                 <!-- This styling is only for the create post form inputs -->
                 <style>
                     input[type=text] {
@@ -69,8 +75,8 @@ body {
                     }
                 </style>
                 
-                <input type="text" placeholder="Create Post">
-                <input type="submit" onclick="createPost()">
+                <input type="text" placeholder="Create Post" name="postText">
+                <input type="submit" value="Submit">
             </form>
         </div>
 
