@@ -8,9 +8,9 @@
 }
 
 #Header {
-    height: 150px;
-    background-color: #4A96BD;
-    text-align: center;
+    height: 80px;
+    background-color: #3126ff;
+    text-align: left;
     color: white;
     font-size: 50px;
     line-height: 140px;
@@ -20,18 +20,17 @@
 
 }
 
+#imgLogo{
+    position: absolute;
+    top: 0px;
+}
 #menu {
     height: 60px;
     background-color: grey;
-    outline: teal;
+    outline: #3126ff;
     outline-width: 10px;
     border: solid black;
     border-width: 5px;
-
-    
-
-
-
 }
 /*#sidebar {
     width: 150px;
@@ -79,19 +78,19 @@
     color: black;
     position: relative;
     left: 30%;
-    top: 160px;
+    top: 150px;
     text-align: center;
     border: solid black;
     border-width: 5px;
-    border-radius: 25px;
 }
+
 #PostCreator {
     width: 60%;
     height: 80px;
     background-color: grey;
     color: black;
     position: absolute;
-    top: 250px;
+    top: 200px;
     left: 30%;
     border:solid black;
     border-width: 5px;
@@ -108,7 +107,7 @@
 #footer {
     height: 100px;
     margin-bottom: 21px;
-    background-color: #4A96BD;
+    background-color: #3126ff;
     clear: both;
     color: white;
     font-size: 50px;

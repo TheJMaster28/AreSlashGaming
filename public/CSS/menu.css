@@ -1,7 +1,7 @@
 #menu {
     height: 60px;
     background-color: grey;
-    outline: teal;
+    outline: #3126ff;
     outline-width: 10px;
     border: solid black;
     border-width: 5px;
@@ -30,5 +30,5 @@
 }
 
 #menu li:hover {
-    background-color: teal;
+    background-color: #3126ff;
 }
