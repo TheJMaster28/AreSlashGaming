@@ -17,6 +17,9 @@
         function login() {
             socket.emit('login');
         }
+        function createPost() {
+            socket.emit('create post')
+        }
 </script>
 
 </head>
@@ -67,7 +70,7 @@ body {
                 </style>
                 
                 <input type="text" placeholder="Create Post">
-                <input type="submit">
+                <input type="submit" onclick="createPost()">
             </form>
         </div>
 
