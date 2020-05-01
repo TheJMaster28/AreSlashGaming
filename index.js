@@ -47,6 +47,10 @@ io.on('connection', function (socket) {
         console.log(data);
         console.log('user wants to create post');
     });
+
+    socket.on('request profile page', function () {
+        console.log('a user wants to request their profile');
+    });
 });
 
 app.get('/', function (req, res) {

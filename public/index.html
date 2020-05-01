@@ -1,63 +1,44 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Home</title>
-<link rel="stylesheet" type="text/css" href="CSS/style.css" />
-<link rel="stylesheet" type="text/css" href="CSS/menu.css" />
-<link rel="stylesheet" type="text/css" href="CSS/800px.css" media = "screen and (max width: 800px)" />
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/menu.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/800px.css" media="screen and (max width: 800px)" />
 
-<script src="/socket.io/socket.io.js"></script>
-    <script>
-        const socket = io();
-        window.onload = function () {
-            socket.on('hello_world', function () {
-                console.log('Hello World');
-            });
-        };
-        function login() {
-            socket.emit('login');
-        }
-        function createPost() {
-            var form = document.forms["CreatePost"]
-            if (form["postText"].value == "") {
-                alert("Cannot create empty post");
-                return false;
-            }
-
-            socket.emit('create post', {text:form["postText"].value});
-        }
-</script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="homepage.js"></script>
 
 </head>
 
 <style>
-/* This styling is for basic margin setup of page */
-body {
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
+    /* This styling is for basic margin setup of page */
+    body {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
 </style>
 
 <body>
-    <div id = "container"></div>
-    <div id = "Header"><img id ="imgLogo" src="theme/GR_Logo_Final.png"></div>
+    <div id="container"></div>
+    <div id="Header"><img id="imgLogo" src="theme/GR_Logo_Final.png"></div>
     <!-- 'menu' id is the navigation bar -->
-    <div id = "menu"> 
+    <div id="menu">
         <!-- unordered list for the nav bar -->
         <ul>
-            <li><a href = "index.html">Home</li>
-            <li><a href = "profile.html">Profile</li>
-            <li><a href = "#">About</li>
-            <li><a href= "./auth/google" onclick="login()">Login with Google!</a></li>
+            <li><a href="index.html">Home</li>
+            <li><a href="profile.html">Profile</li>
+            <li><a href="#">About</li>
+            <li><a href="./auth/google" onclick="login()">Login with Google!</a></li>
         </ul>
     </div>
 
     <!-- Start "mainbody" div -->
-    <div id = "mainbody">
-        <div id = "PostCreator">
+    <div id="mainbody">
+        <div id="PostCreator">
             <form name="CreatePost" onsubmit=" return createPost()">
                 <!-- This styling is only for the create post form inputs -->
                 <style>
@@ -91,17 +72,18 @@ body {
                         bottom: 40px;
                     }
                 </style>
-                
+
                 <input type="text" placeholder="Create Post" name="postText">
                 <input type="text" placeholder="Link Post" name="linkText">
                 <input type="submit" value="Text Post">
                 <button type="button" onclick="">Link Post</button>
             </form>
         </div>
-        <div id = "feed"></div>
+        <div id="feed"></div>
     </div>
     <!-- end "mainbody div" -->
-    
-    <div id = "footer">FOOTER</div>
+
+    <div id="footer">FOOTER</div>
 </body>
+
 </html>

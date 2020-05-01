@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>GamerGetRekt Profile</title>
-<link rel="stylesheet" type="text/css" href="CSS/style.css" />
-<link rel="stylesheet" type="text/css" href="CSS/menu.css" />
-<link rel="stylesheet" type="text/css" href="CSS/800px.css" media = "screen and (max width: 800px)" />
+    <title>GamerGetRekt Profile</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/menu.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/800px.css" media="screen and (max width: 800px)" />
 </head>
 
-<style>
+<script src="/socket.io/socket.io.js"></script>
+<script src="profilePage.js"></script>
 
+<style>
     body {
         margin-left: 0px;
         margin-right: 0px;
         margin-top: 0px;
         margin-bottom: 0px;
     }
-    
 </style>
 
-    <body>
-        <div id = "container"></div>
-        <div id = "Header"><img id ="imgLogo" src="theme/GR_Logo_Final.png"></div>
-        <div id = "menu"> 
-            <ul>
-                <li><a href = "index.html">Home</li>
-                <li><a href = "profile.html">Profile</li>
-                <li><a href = "#">About</li>
-                <li><a href= "./auth/google" onclick="login()">Login with Google!</a></li>
-            </ul>
-        </div>
-        <div class="banner">
-            <h1>Welcome to Your Profile!</h1>
-            <h2>Your name here</h2>
-            <h3>Maybe bio stuff</h3>
-        </div>
+<body>
+    <div id="container"></div>
+    <div id="Header"><img id="imgLogo" src="theme/GR_Logo_Final.png"></div>
+    <div id="menu">
+        <ul>
+            <li><a href="index.html">Home</li>
+            <li><a href="profile.html">Profile</li>
+            <li><a href="#">About</li>
+            <li><a href="./auth/google" onclick="login()">Login with Google!</a></li>
+        </ul>
+    </div>
+    <div class="banner">
+        <h1>Welcome to Your Profile!</h1>
+        <h2>Your name here</h2>
+        <h3>Maybe bio stuff</h3>
+    </div>
 
-        <div class="wall">
-            <p>
-                Wall stuff will probably go here
-            </p>
-        </div>
+    <div class="wall">
+        <p>
+            Wall stuff will probably go here
+        </p>
+    </div>
 
-    </body>
+</body>
+
 </html>
