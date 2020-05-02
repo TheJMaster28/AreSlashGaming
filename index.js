@@ -65,6 +65,7 @@ io.on('connection', function (socket) {
 
     socket.on('request profile page', function () {
         console.log('a user wants to request their profile');
+        socket.emit('sending user profile', { data: 'Profile' });
     });
 });
 

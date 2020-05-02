@@ -9,14 +9,10 @@ function is_url(str) {
     }
 }
 
-window.onload = function () {
-    socket.on('hello_world', function () {
-        console.log('Hello World');
-    });
-};
 function login() {
     socket.emit('login');
 }
+
 function createPost() {
     try {
         var form = document.forms['CreatePost'];
