@@ -5,12 +5,17 @@ var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 var port = 3000;
 
+
 /* google OAuth set up */
 const googleConfig = require('./OAuth/config');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
-/* mongo set up */
+/* mongoose set up */
 mongoose.connect('mongodb+srv://Gerg:getrekt@webusers-5lz1h.mongodb.net/GetRekt?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true}).catch(error => console.log("Connection Error: " + error));
+mongoose.connection.on('error', function (err) {
+    console.error('MongoDB error: ' + err.message);
+    console.error('Make sure a mongoDB server is running and accessible by this application')
+  });
 var User = require('./models/user');
 
 app.use(express.static('public'));
