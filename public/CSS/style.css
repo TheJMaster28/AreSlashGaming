@@ -35,10 +35,10 @@
 #trending {
     position: relative;
     background-color: #E3F0FA;
-    width: 300px;
+    width: 20%;
     height: 400px;
     top: 40px;
-    left: 10px;
+    left: 2%;
     text-align: center;
     color: black;
     border: solid black;
@@ -48,7 +48,7 @@
 
 #feed {
     width: 60%;
-    height: 1000px;
+    height: 100%;
     background-color: #E3F0FA;
     color: black;
     position: absolute;
