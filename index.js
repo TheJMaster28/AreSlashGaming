@@ -50,6 +50,7 @@ io.on('connection', function (socket) {
                     user.googleAccessToken = accessToken;
                     user.save(function(err){
                         done(err, user);
+                        console.log("Saved user profile to database" + user);
                     });
                 } else {
                    done(err, user); 
