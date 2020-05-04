@@ -18,6 +18,7 @@ mongoose.connection.on('error', function (err) {
     console.error('Make sure a mongoDB server is running and accessible by this application');
 });
 var User = require('./models/user');
+var Clip = require('./models/clip');
 
 app.use(express.static('public'));
 
@@ -89,6 +90,7 @@ io.on('connection', function (socket) {
         //query posts
         socket.emit('receive posts', { text: 'Example Posts' });
     });
+
 });
 
 app.get('/', function (req, res) {
