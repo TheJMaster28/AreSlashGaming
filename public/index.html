@@ -2,26 +2,14 @@
 <html>
 
 <head>
-<title>Home</title>
-<link rel="stylesheet" type="text/css" href="CSS/style.css" />
-<link rel="stylesheet" type="text/css" href="CSS/menu.css" />
-<link rel="stylesheet" type="text/css" href="CSS/800px.css" media = "screen and (max width: 800px)" />
-
-<script src="/socket.io/socket.io.js"></script>
-    <script>
-        const socket = io();
-        window.onload = function () {
-            socket.on('hello_world', function () {
-                console.log('Hello World');
-            });
-        };
-        function googleLogin() {
-            socket.emit('googleLogin');
-        }
-</script>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/menu.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/800px.css" media="screen and (max width: 800px)" />
 
     <script src="/socket.io/socket.io.js"></script>
-    <script src="homepage.js"></script>
+    <script src="web_scripts/homePage.js"></script>
+    <!-- <script src="web_scripts/profilePage.js"></script> -->
 
 </head>
 
@@ -42,15 +30,16 @@
     <div id="menu">
         <!-- unordered list for the nav bar -->
         <ul>
-            <li><a href = "index.html">Home</li>
-            <li><a href = "profile.html">Profile</li>
-            <li><a href = "#">About</li>
-            <li><a href= "./auth/google" onclick="googleLogin()">Login with Google!</a></li>
+            <li><a href="index.html">Home</li>
+            <li><a href="profile.html">Profile</li>
+            <li><a href="#">About</li>
+            <li><a href="./auth/google" onclick="googleLogin()">Login with Google!</a></li>
         </ul>
     </div>
 
     <!-- Start "mainbody" div -->
     <div id="mainbody">
+        <div id = "trending"> Trending</div>
         <div id="PostCreator">
             <form name="CreatePost" onsubmit=" return createPost()">
                 <!-- This styling is only for the create post form inputs -->
@@ -62,6 +51,7 @@
                         box-sizing: border-box;
                         background-color: lightgray;
                         border-radius: 10px;
+                
                     }
                     button[type=button] {
                         background-color: #3126ff;

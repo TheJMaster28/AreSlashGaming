@@ -26,20 +26,34 @@
 #mainbody {
     width: 100%;
     height: 100%;
-    background-color: #E3F0FA;
+    background-color: white;
     color: white;
     font-size: 30px;
 
 }
 
+#trending {
+    position: relative;
+    background-color: #E3F0FA;
+    width: 20%;
+    height: 400px;
+    top: 40px;
+    left: 2%;
+    text-align: center;
+    color: black;
+    border: solid black;
+    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+
+}
+
 #feed {
     width: 60%;
-    height: 1000px;
-    background-color: grey;
+    height: 100%;
+    background-color: #E3F0FA;
     color: black;
-    position: relative;
+    position: absolute;
     left: 30%;
-    top: 150px;
+    top: 320px;
     text-align: center;
     border: solid black;
     border-width: 5px;
@@ -47,22 +61,49 @@
 
 #PostCreator {
     width: 60%;
-    height: 80px;
-    background-color: grey;
+    height: 100px;
+    background-color: #E3F0FA;
     color: black;
     position: absolute;
     top: 200px;
     left: 30%;
     border:solid black;
-    border-width: 5px;
+   
 }
 
 #footer {
+    display: none;
     height: 50px;
     background-color: #3126ff;
     color: white;
     text-align: center;
     position: relative;
-    top: 100px;
+    bottom: 0px;
     
+}
+
+aside {
+    text-align: center;
+    position: absolute;
+    left: 10px;
+    top: 180px;
+    width: 400px;
+    height: 100%;
+    z-index: 10;
+    background-color: #E3F0FA;
+    overflow: visible;
+    border: solid black;
+    border-width: 5px;
+    
+}
+span.name {
+    font-size: 30px;
+    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+span.email {
+    font-size: 20px;
+}
+span.status {
+    font-size: 20px;
 }
