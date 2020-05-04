@@ -19,6 +19,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "findorcreate_mongoose5.x": "^1.0.3",
+    "greenlock-express": "^4.0.3",
     "mongoose": "^5.9.10",
     "mongoose-findorcreate": "^3.0.0",
     "mongoose-unique-validator": "^2.0.3",
