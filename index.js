@@ -77,19 +77,16 @@ io.on('connection', function (socket) {
 
     socket.on('post clip', function(msg) {
 	console.log('a user is posting a clip link');
-	Clip.findOrCreate({ url: msg }, function (err, user) {
+	Clip.findOrCreate({ url: msg }, function (err, clip) {
 	    console.log('looking for url...');
 	    if (!err) {
 		var date = new Date();
 		var time = date.getTime();
 		clip.postTime = time;
 		clip.save(function (err) {
-		    done(err, user);
 		    console.log('Saved clip link to database' + clip);
 		});
-	     } else {
-		done(err, user);
-	     }
+	    }
 	});
     });
 
