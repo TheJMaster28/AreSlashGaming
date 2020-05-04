@@ -60,8 +60,6 @@ io.on('connection', function (socket) {
         
         passport.use(googleStrategy);
 
-        //authenticate user through google redirect
-        app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile'] }));
     });
 
     socket.on('create post', function (data) {
@@ -79,6 +77,15 @@ io.on('connection', function (socket) {
 app.get('/', function (req, res) {
     res.sendFile(__dirname + 'public/index.html');
 });
+
+//authenticate user through google redirect
+app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile'] }));
+
+app.get('/auth/google/callback', 
+    passport.authenticate('google', { failureRedirect: '/auth/google'}),
+    function(req, res){
+        res.redirect('/');
+    });
 
 http.listen(port, function () {
     console.log(`listening on port ${port}`);
