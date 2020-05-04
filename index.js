@@ -52,6 +52,7 @@ io.on('connection', function (socket) {
         }, function (accessToken, refreshToken, profile, done) {
             // find or create user from the database based on googleId and google display name
             User.findOrCreate({googleId: profile.id}, function(err ,user){
+                console.log("finding user...");
                 if(!err){
                     //save google profile and access token to the user.js object
                     user.googleProfile = profile;
