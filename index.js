@@ -25,6 +25,14 @@ const passport = require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
 
+passport.serializeUser(function(user, done) {
+    done(null, user._id);
+});
+
+passport.deserializeUser(function(userId, done) {
+    User.findById(userId, (err, user) => done(err, user));
+});
+
 io.on('connection', function (socket) {
     console.log('a user has connected');
     io.emit('hello_world');
@@ -39,7 +47,7 @@ io.on('connection', function (socket) {
             *  after testing, switch callbackURL back to gamergetrekt.com then
             *  push your updated code for Jeff to pull
             */
-            callbackURL: "http://localhost:3000"
+            callbackURL: "http://localhost:3000/auth/google/callback"
             //callbackURL: "http://gamergetrekt.com:3000" 
         }, function (accessToken, refreshToken, profile, done) {
             // find or create user from the database based on googleId and google display name
