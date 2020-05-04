@@ -75,6 +75,24 @@ io.on('connection', function (socket) {
         passport.use(googleStrategy);
     });
 
+    socket.on('post clip', function(msg) {
+	console.log('a user is posting a clip link');
+	Clip.findOrCreate({ url: msg }, function (err, user) {
+	    console.log('looking for url...');
+	    if (!err) {
+		var date = new Date();
+		var time = date.getTime();
+		clip.postTime = time;
+		clip.save(function (err) {
+		    done(err, user);
+		    console.log('Saved clip link to database' + clip);
+		});
+	     } else {
+		done(err, user);
+	     }
+	});
+    });
+
     socket.on('create post', function (data) {
         console.log(data);
         console.log('user wants to create post');
