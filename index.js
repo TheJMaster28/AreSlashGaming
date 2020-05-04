@@ -125,3 +125,5 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
 http.listen(port, function () {
     console.log(`listening on port ${port}`);
 });
+
+module.exports = app;
