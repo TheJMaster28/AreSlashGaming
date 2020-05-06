@@ -5,7 +5,7 @@ const findOrCreate = require('mongoose-findorcreate');
 
 const ClipSchema = new Schema({
     url: { type: String },
-    postTime: { type: Number }
+    postTime: { type: String }
 });
 
 ClipSchema.index({ postTime: 1 }, { unique: true }); //Defines an index (most likely compound) for this schema
