@@ -21,16 +21,25 @@
     </style>
 
     <body>
-        <h1> Hello World! </h1>
         <% if(user == undefined) {%>
             <h2>Not Logged In</h2>
           <% } else { %>
+            <div id="Header"><img id="imgLogo" src="theme/GR_Logo_Final.png"></div>
+            <div id="menu">
+                <ul>
+                    <li><a href="index.html">Home</li>
+                    <li><a href="profile.html">Profile</li>
+                    <li><a href="#">About</li>
+                    <li><a href="./auth/google" onclick="googleLogin()">Login with Google!</a></li>
+                    <li><a href="upload.html">Upload Clip</a></li>
+                </ul>
+            </div>
             <aside id = "Sidebar"><h1>Profile</h1>
                 <div class="user-pic">
                     <img width = "300"length = "200" src="img/joe.jpg" >
                 </div>
                 <div class = "user-info">
-                    <span class = "name">Joe Exotic <br></span>
+                    <span class = "name"><%=user.googleProfile.displayName %> <br></span>
                     <span class = "email">joeexoctic.tv@gmail.com <br></span>
                     <span class = "status">Online <br></span>
                 </div>
