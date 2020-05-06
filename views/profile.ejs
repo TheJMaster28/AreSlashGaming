@@ -1,9 +1,52 @@
 <html>
+
+    <head>
+        <title>GamerGetRekt Profile</title>
+        <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+        <link rel="stylesheet" type="text/css" href="CSS/menu.css" />
+        <link rel="stylesheet" type="text/css" href="CSS/800px.css" media="screen and (max width: 800px)" />
+    </head>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="web_scripts/homePage.js"></script>
+    <script src="web_scripts/profilePage.js"></script>
+    
+    <style>
+        body {
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+    </style>
+
     <body>
         <h1> Hello World! </h1>
         <% if(user == undefined) {%>
             <h2>Not Logged In</h2>
           <% } else { %>
+            <aside id = "Sidebar"><h1>Profile</h1>
+                <div class="user-pic">
+                    <img width = "300"length = "200" src="img/joe.jpg" >
+                </div>
+                <div class = "user-info">
+                    <span class = "name">Joe Exotic <br></span>
+                    <span class = "email">joeexoctic.tv@gmail.com <br></span>
+                    <span class = "status">Online <br></span>
+                </div>
+                <div class = "Search">
+                    <form>
+                        <div class = "row">
+                            <input type="text" placeholder="Search Profile">
+                            <button type = "submit"> Search</button>
+                        </div>
+                    </form>
+                </div>
+                <div class = profileOptions>
+                    <h2>General <br></h2>
+                    <h2>Settings <br></h2>
+                </div>
+            </aside>
               <h2>Logged in as Google User: <%=user.googleProfile.displayName %></h2>
             <% } %>
             <a href="/">Home</a>
