@@ -56,7 +56,7 @@ io.on('connection', function (socket) {
                  *  push your updated code for Jeff to pull
                  */
                 callbackURL: 'http://localhost:3000/auth/google/callback'
-                //callbackURL: "http://gamergetrekt.com:3000"
+                //callbackURL: "https://gamergetrekt.com"
             },
             function (accessToken, refreshToken, profile, done) {
                 // find or create user from the database based on googleId and google display name
