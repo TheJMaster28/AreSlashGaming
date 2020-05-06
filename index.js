@@ -81,8 +81,7 @@ io.on('connection', function (socket) {
 	    console.log('looking for url...');
 	    if (!err) {
 		var date = new Date();
-		var time = date.getTime();
-		clip.postTime = time;
+		clip.postTime = date;
 		clip.save(function (err) {
 		    console.log('Saved clip link to database' + clip);
 		});
@@ -102,8 +101,16 @@ io.on('connection', function (socket) {
 
     socket.on('request posts', function () {
         console.log('a user wants to see posts');
-        //query posts
-        socket.emit('receive posts', { text: 'Example Posts' });
+        Clip.find().lean().exec(function (err, clips) {
+            var query = JSON.stringify(clips);
+            console.log(query)
+            console.log('sending requested posts');    
+            socket.emit('receive posts', query);
+        });
+    });
+
+    socket.on('debug', function (msg) {
+        console.log(msg);
     });
 
 });

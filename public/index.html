@@ -9,6 +9,7 @@
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="web_scripts/homePage.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- <script src="web_scripts/profilePage.js"></script> -->
 
 </head>
@@ -22,6 +23,29 @@
         margin-bottom: 0px;
     }
 </style>
+
+<script>
+    window.onload = function () {
+        var socket = io();
+        socket.emit('request posts');
+
+        socket.on('receive posts', function (obj) {
+            var query = JSON.parse(obj);
+            socket.emit('debug', query);
+            for (var i = 0; i < query.length; i++) {
+                var obj = query[i];
+                var clip = $("<iframe/>");
+                clip.attr({
+                    width: 560,
+                    height: 315,
+                    src: obj.url,
+                    frameborder: 0
+                });
+                $("#clipContainer").append(clip);
+            }
+        });
+    };
+</script>
 
 <body>
     <div id="container"></div>
@@ -38,54 +62,7 @@
         </ul>
     </div>
 
-    <!-- Start "mainbody" div -->
-    <div id="mainbody">
-        <div id = "trending"> Trending</div>
-        <div id="PostCreator">
-            <form name="CreatePost" onsubmit=" return createPost()">
-                <!-- This styling is only for the create post form inputs -->
-                <style>
-                    input[type=text] {
-                        width: 90%;
-                        padding: 8px 12px;
-                        margin: 2px 0;
-                        box-sizing: border-box;
-                        background-color: lightgray;
-                        border-radius: 10px;
-                
-                    }
-                    button[type=button] {
-                        background-color: #3126ff;
-                        border: solid black;
-                        color: white;
-                        padding: 4px 8px;
-                        text-decoration: none;
-                        cursor: pointer;
-                        position: absolute;
-                        bottom: 5px;          
-                    }
-
-                    input[type=submit] {
-                        background-color: #3126ff;
-                        border: solid black;
-                        color: white;
-                        padding: 4px 8px;
-                        text-decoration: none;
-                        cursor: pointer;
-                        position: absolute;
-                        bottom: 40px;
-                    }
-                </style>
-
-                <input type="text" placeholder="Create Post" name="postText">
-                <input type="text" placeholder="Link Post" name="linkText">
-                <input type="submit" value="Text Post">
-                <button type="button" onclick="">Link Post</button>
-            </form>
-        </div>
-        <div id="feed"></div>
-    </div>
-    <!-- end "mainbody div" -->
+    <div id="clipContainer"></div>
 
 </body>
 
