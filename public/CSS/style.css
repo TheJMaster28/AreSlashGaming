@@ -1,6 +1,4 @@
-
-
-#container{
+#container {
     width: 800px;
     height: auto;
     margin-left: auto;
@@ -14,14 +12,13 @@
     color: white;
     font-size: 50px;
     line-height: 140px;
-    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
 }
 
-#imgLogo{
+#imgLogo {
     position: absolute;
     top: 0px;
 }
-
 
 #mainbody {
     width: 100%;
@@ -29,12 +26,11 @@
     background-color: white;
     color: white;
     font-size: 30px;
-
 }
 
 #trending {
     position: relative;
-    background-color: #E3F0FA;
+    background-color: #e3f0fa;
     width: 20%;
     height: 400px;
     top: 40px;
@@ -42,14 +38,13 @@
     text-align: center;
     color: black;
     border: solid black;
-    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
-
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
 }
 
 #feed {
     width: 60%;
     height: 100%;
-    background-color: #E3F0FA;
+    background-color: #e3f0fa;
     color: black;
     position: absolute;
     left: 30%;
@@ -62,13 +57,12 @@
 #PostCreator {
     width: 60%;
     height: 100px;
-    background-color: #E3F0FA;
+    background-color: #e3f0fa;
     color: black;
     position: absolute;
     top: 200px;
     left: 30%;
-    border:solid black;
-   
+    border: solid black;
 }
 
 #footer {
@@ -79,7 +73,6 @@
     text-align: center;
     position: relative;
     bottom: 0px;
-    
 }
 
 aside {
@@ -90,15 +83,14 @@ aside {
     width: 400px;
     height: 100%;
     z-index: 10;
-    background-color: #E3F0FA;
+    background-color: #e3f0fa;
     overflow: visible;
     border: solid black;
     border-width: 5px;
-    
 }
 span.name {
     font-size: 30px;
-    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
 }
 
 span.email {
@@ -106,4 +98,19 @@ span.email {
 }
 span.status {
     font-size: 20px;
+}
+
+#clipContainer {
+    width: 50%;
+    margin: 10px 25% 10px 25%;
+    /* height: 100%; */
+    background-color: #e3f0fa;
+    color: black;
+    position: absolute;
+    /* left: 30%; */
+    /* top: 320px; */
+    text-align: center;
+    border: solid black;
+    border-width: 5px;
+    padding-top: 50px;
 }
