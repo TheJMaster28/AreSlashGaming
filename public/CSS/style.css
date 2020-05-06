@@ -107,3 +107,17 @@ span.email {
 span.status {
     font-size: 20px;
 }
+
+#clipContainer {
+    width: 60%;
+    height: 100%;
+    background-color: #E3F0FA;
+    color: black;
+    position: absolute;
+    left: 30%;
+    top: 320px;
+    text-align: center;
+    border: solid black;
+    border-width: 5px;
+    padding-top: 50px;
+}
