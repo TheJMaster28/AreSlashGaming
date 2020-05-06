@@ -23,6 +23,7 @@ mongoose.connection.on('error', function (err) {
 
 var User = require('./models/user');
 var Clip = require('./models/clip');
+var UserModel;
 
 app.use(express.static('public'));
 
@@ -68,6 +69,7 @@ io.on('connection', function (socket) {
                         user.save(function (err) {
                             done(err, user);
                             console.log('Saved user profile to database' + user);
+                            UserModel = user;
                         });
                     } else {
                         done(err, user);
@@ -75,7 +77,6 @@ io.on('connection', function (socket) {
                 });
             }
         );
-
         passport.use(googleStrategy);
     });
 
@@ -132,8 +133,8 @@ function (req, res) {
 });
 
 app.get("/profile", function(req, res){
-    res.render('profile.ejs', { user: req.user } );
-    console.log("REQUEST USER: " + req.user);
+    res.render('profile.ejs', { user: UserModel } );
+    console.log("REQUEST USER: " + UserModel);
 });
 
 http.listen(port, function () {
