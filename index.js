@@ -137,6 +137,11 @@ app.get("/profile", function(req, res){
     console.log("REQUEST USER: " + UserModel);
 });
 
+app.get("/", function(req, res){
+    res.render('index.ejs', { user: UserModel } );
+    console.log("REQUEST USER: " + UserModel);
+});
+
 http.listen(port, function () {
     console.log(`listening on port ${port}`);
 });
