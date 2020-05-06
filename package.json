@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/TheJMaster28/GetRekt.com#readme",
   "dependencies": {
+    "ejs": "^3.1.2",
     "express": "^4.17.1",
     "findorcreate_mongoose5.x": "^1.0.3",
     "greenlock-express": "^4.0.3",

@@ -5,6 +5,9 @@ var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 var port = 3000;
 
+/* EJS */
+app.set("view engine", "ejs");
+
 /* google OAuth set up */
 const googleConfig = require('./OAuth/config');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -17,6 +20,7 @@ mongoose.connection.on('error', function (err) {
     console.error('MongoDB error: ' + err.message);
     console.error('Make sure a mongoDB server is running and accessible by this application');
 });
+
 var User = require('./models/user');
 var Clip = require('./models/clip');
 
@@ -122,8 +126,14 @@ app.get('/', function (req, res) {
 //authenticate user through google redirect
 app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile'] }));
 
-app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/auth/google' }), function (req, res) {
-    res.redirect('/');
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/auth/google' }), 
+function (req, res) {
+    res.redirect('/profile');
+});
+
+app.get("/profile", function(req, res){
+    res.render('profile.ejs', { user: req.user } );
+    console.log("REQUEST USER: " + req.user);
 });
 
 http.listen(port, function () {
