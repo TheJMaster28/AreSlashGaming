@@ -113,4 +113,9 @@ dist
 .yarn/unplugged
 .yarn/build-state.yml
 .pnp.*
+
+# log files
 *.txt
+
+# keys and certificate
+*.pem
