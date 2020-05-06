@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <h1> Hello World! </h1>
+        <% if(user == undefined) {%>
+            <h2>Not Logged In</h2>
+          <% } else { %>
+              <h2>Logged in as Google User: <%=user.googleProfile.displayName %></h2>
+            <% } %>
+            <a href="../public/index">Home</a>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/menu.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/800px.css" media="screen and (max width: 800px)" />
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="web_scripts/homePage.js"></script>
+    <!-- <script src="web_scripts/profilePage.js"></script> -->
+
+</head>
+
+<style>
+    /* This styling is for basic margin setup of page */
+    body {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+</style>
+
+<script>
+    window.onload = function () {
+        var socket = io();
+        var form = document.getElementById("chatForm");
+
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            var messageInput = document.getElementById("m");
+
+            socket.emit('post clip', messageInput.value);
+
+            messageInput.value = "";
+            return false;
+        };
+    };
+</script>
+
+<body>
+    <div id="container"></div>
+    <div id="Header"><img id="imgLogo" src="theme/GR_Logo_Final.png"></div>
+    <!-- 'menu' id is the navigation bar -->
+    <div id="menu">
+        <!-- unordered list for the nav bar -->
+        <ul>
+            <li><a href="index.html">Home</li>
+            <li><a href="profile.html">Profile</li>
+            <li><a href="#">About</li>
+            <li><a href="./auth/google" onclick="googleLogin()">Login with Google!</a></li>
+            <li><a href="upload.html">Upload Clip</a></li>
+        </ul>
+    </div>
+
+    <form id="chatForm" action="">
+        <input id="m" autocomplete="off" /><button>Post Clip</button>
+    </form>
+
+</body>
+
+</html>

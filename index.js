@@ -5,6 +5,9 @@ var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 var port = 3000;
 
+/* EJS */
+app.set("view engine", "ejs");
+
 /* google OAuth set up */
 const googleConfig = require('./OAuth/config');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -17,6 +20,7 @@ mongoose.connection.on('error', function (err) {
     console.error('MongoDB error: ' + err.message);
     console.error('Make sure a mongoDB server is running and accessible by this application');
 });
+
 var User = require('./models/user');
 var Clip = require('./models/clip');
 
@@ -77,19 +81,15 @@ io.on('connection', function (socket) {
 
     socket.on('post clip', function(msg) {
 	console.log('a user is posting a clip link');
-	Clip.findOrCreate({ url: msg }, function (err, user) {
+	Clip.findOrCreate({ url: msg }, function (err, clip) {
 	    console.log('looking for url...');
 	    if (!err) {
 		var date = new Date();
-		var time = date.getTime();
-		clip.postTime = time;
+		clip.postTime = date;
 		clip.save(function (err) {
-		    done(err, user);
 		    console.log('Saved clip link to database' + clip);
 		});
-	     } else {
-		done(err, user);
-	     }
+	    }
 	});
     });
 
@@ -105,8 +105,16 @@ io.on('connection', function (socket) {
 
     socket.on('request posts', function () {
         console.log('a user wants to see posts');
-        //query posts
-        socket.emit('receive posts', { text: 'Example Posts' });
+        Clip.find().lean().exec(function (err, clips) {
+            var query = JSON.stringify(clips);
+            console.log(query)
+            console.log('sending requested posts');    
+            socket.emit('receive posts', query);
+        });
+    });
+
+    socket.on('debug', function (msg) {
+        console.log(msg);
     });
 
 });
@@ -118,8 +126,14 @@ app.get('/', function (req, res) {
 //authenticate user through google redirect
 app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile'] }));
 
-app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/auth/google' }), function (req, res) {
-    res.redirect('/');
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/auth/google' }), 
+function (req, res) {
+    res.redirect('/profile');
+});
+
+app.get("/profile", function(req, res){
+    res.render('profile.ejs', { user: req.user } );
+    console.log("REQUEST USER: " + req.user);
 });
 
 http.listen(port, function () {

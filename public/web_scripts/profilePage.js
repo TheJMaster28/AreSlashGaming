@@ -5,3 +5,4 @@ window.onload = function () {
 socket.on('sending user profile', function (data) {
     console.log('have received data', data);
 });
+
