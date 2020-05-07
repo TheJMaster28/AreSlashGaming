@@ -125,3 +125,14 @@ span.status {
 #noUser{
     color: white;
 }
+
+#uploadEntry{
+    margin: auto;
+    width: 50%;
+    padding-top: 50px;
+}
+
+#clipPost{
+    
+    font-size: 125%;
+}
