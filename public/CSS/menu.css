@@ -1,10 +1,11 @@
 /* seperate menu.css file just to keep tidy */
 #menu {
     height: 60px;
-    background-color: grey;
+/*    background-color: grey;*/
+    background-color: #29282D;
     outline: #3126ff;
     outline-width: 10px;
-    border: solid black;
+/*    border: solid black;*/
     border-width: 5px;
 }
 
