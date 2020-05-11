@@ -107,12 +107,12 @@ io.on('connection', function (socket) {
     });
 });
 
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + 'public/index.html');
-});
+// app.get('/', function (req, res) {
+//     res.sendFile(__dirname + 'public/index.html');
+// });
 
 //authenticate user through google redirect
-app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile'] }));
+app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'] }));
 
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/auth/google' }), function (req, res) {
     res.redirect('/profile');
