@@ -30,7 +30,9 @@ window.onload = function () {
         try {
             socket.emit('post clip', makeEmbedURL(messageInput.value));
             messageInput.value = '';
-            window.location.href = '/';
+            setTimeout(function () {
+                window.location.href = '/';
+            }, 500);
             return false;
         } catch (err) {
             alert(err);
