@@ -31,6 +31,7 @@ socket.on('receive posts', function (obj) {
 
     for (var i = query.length - 1; i >= 0; i--) {
         var obj = query[i];
+        console.log(obj);
         var div = $('<div>');
         div.attr({
             class: 'clipCard'
@@ -39,7 +40,7 @@ socket.on('receive posts', function (obj) {
         user.attr({
             class: 'username'
         });
-        user.text(obj.user + ':');
+        user.text(obj.user + ': ' + obj.postTime);
         var clip = $('<iframe/>');
         clip.attr({
             width: 560,
