@@ -14,7 +14,8 @@ function googleLogin() {
 
 socket.on('receive posts', function (obj) {
     var query = JSON.parse(obj);
-    socket.emit('debug', query);
+    // socket.emit('debug', query);
+    console.log(query);
     // for (var i = 0; i < query.length; i++) {
     //     var obj = query[i];
     //     var clip = $('<iframe/>');
@@ -30,6 +31,15 @@ socket.on('receive posts', function (obj) {
 
     for (var i = query.length - 1; i >= 0; i--) {
         var obj = query[i];
+        var div = $('<div>');
+        div.attr({
+            class: 'clipCard'
+        });
+        var user = $('<h3>');
+        user.attr({
+            class: 'username'
+        });
+        user.text(obj.user + ':');
         var clip = $('<iframe/>');
         clip.attr({
             width: 560,
@@ -38,6 +48,8 @@ socket.on('receive posts', function (obj) {
             frameborder: 0,
             class: 'clip'
         });
-        $('#clipContainer').append(clip);
+        $('#clipContainer').append(div);
+        div.append(user);
+        div.append(clip);
     }
 });

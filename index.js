@@ -87,6 +87,7 @@ io.on('connection', function (socket) {
             if (!err) {
                 var date = new Date();
                 clip.postTime = date;
+                clip.user = UserModel.googleProfile.displayName;
                 clip.save(function (err) {
                     console.log('Saved clip link to database' + clip);
                 });
@@ -115,7 +116,7 @@ io.on('connection', function (socket) {
 app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'] }));
 
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/auth/google' }), function (req, res) {
-    res.redirect('/profile');
+    res.redirect('/');
 });
 
 app.get('/profile', function (req, res) {

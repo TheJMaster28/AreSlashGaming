@@ -189,3 +189,10 @@ span.status {
     margin: 20px;
     box-shadow: 5px 10px 18px;
 }
+
+.username {
+    color: white;
+    text-align: justify;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
