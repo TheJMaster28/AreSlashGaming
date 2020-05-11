@@ -104,22 +104,33 @@ span.email {
 span.status {
     font-size: 20px;
 }
+#feed {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
 
 #clipContainer {
-    width: 50%;
-    margin: 10px 25% 10px 25%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    /* margin: 10px 25% 10px 25%; */
+    margin-top: 25px;
     /* height: 100%; */
     background-color: #18171c;
     /*   background-color: #e3f0fa;*/
     color: black;
-    position: absolute;
+    /* position: absolute; */
     /* left: 30%; */
     /* top: 320px; */
     text-align: center;
     /*    border: solid black;*/
     border-width: 5px;
-    padding-top: 50px;
-    padding-right: 200px;
+    /* padding-top: 50px; */
+    /* padding-right: 200px; */
+    padding: 10px;
 }
 
 #noUser {
@@ -127,8 +138,11 @@ span.status {
 }
 
 #uploadEntry {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: auto;
-    width: 50%;
+    /* width: 50%; */
     padding-top: 50px;
 }
 
@@ -169,4 +183,9 @@ span.status {
 
 #logInButton:hover {
     background-color: #3126ff;
+}
+
+.clip {
+    margin: 20px;
+    box-shadow: 5px 10px 18px;
 }

@@ -22,7 +22,8 @@ socket.on('receive posts', function (obj) {
             width: 560,
             height: 315,
             src: obj.url,
-            frameborder: 0
+            frameborder: 0,
+            class: 'clip'
         });
         $('#clipContainer').append(clip);
     }
