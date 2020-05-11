@@ -2,13 +2,13 @@
 <html>
 
 <head>
-    <title>Home</title>
+    <title>Upload Clip</title>
     <link rel="stylesheet" type="text/css" href="CSS/style.css" />
     <link rel="stylesheet" type="text/css" href="CSS/menu.css" />
     <link rel="stylesheet" type="text/css" href="CSS/800px.css" media="screen and (max width: 800px)" />
 
     <script src="/socket.io/socket.io.js"></script>
-    <script src="web_scripts/homePage.js"></script>
+    <script src="web_scripts/upload.js"></script>
     <!-- <script src="web_scripts/profilePage.js"></script> -->
 
 </head>
@@ -24,20 +24,7 @@
 </style>
 
 <script>
-    window.onload = function () {
-        var socket = io();
-        var form = document.getElementById("chatForm");
 
-        form.onsubmit = function(e) {
-            e.preventDefault();
-            var messageInput = document.getElementById("m");
-
-            socket.emit('post clip', messageInput.value);
-
-            messageInput.value = "";
-            return false;
-        };
-    };
 </script>
 
 <body>
@@ -56,7 +43,8 @@
     </div>
     <div id="uploadEntry">
         <form id="chatForm" action="">
-            <input id="clipPost" autocomplete="off" placeholder="Enter emebed link" /><button id="clipPost">Post Clip</button>
+            <input class ="clipPost" id="m" autocomplete="off" placeholder="Enter emebed link" />
+            <button class="clipPost">Post Clip</button>
         </form>
     </div>
 

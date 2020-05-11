@@ -24,45 +24,45 @@
 </style>
 
 <script>
-    window.onload = function () {
-        var socket = io();
-        socket.emit('request posts');
+    // window.onload = function () {
+    //     var socket = io();
+    //     socket.emit('request posts');
 
-        socket.on('receive posts', function (obj) {
-            var query = JSON.parse(obj);
-            socket.emit('debug', query);
-            for (var i = 0; i < query.length; i++) {
-                var obj = query[i];
-                var clip = $("<iframe/>");
-                clip.attr({
-                    width: 560,
-                    height: 315,
-                    src: obj.url,
-                    frameborder: 0
-                });
-                $("#clipContainer").append(clip);
-            }
-        });
-    };
+    //     socket.on('receive posts', function (obj) {
+    //         var query = JSON.parse(obj);
+    //         socket.emit('debug', query);
+    //         for (var i = 0; i < query.length; i++) {
+    //             var obj = query[i];
+    //             var clip = $("<iframe/>");
+    //             clip.attr({
+    //                 width: 560,
+    //                 height: 315,
+    //                 src: obj.url,
+    //                 frameborder: 0
+    //             });
+    //             $("#clipContainer").append(clip);
+    //         }
+    //     });
+    // };
 </script>
 
 <body>
     <div id="mainbody">
-    <div id="container"></div>
-    <div id="Header"><img id="imgLogo" src="theme/CorrectLogoGR_5.png"></div>
-    <!-- 'menu' id is the navigation bar -->
-    <div id="menu">
-        <!-- unordered list for the nav bar -->
-        <ul>
-            <li><a href="/">Home</li>
-            <li><a href="/profile">Profile</li>
-            <li><a href="#">About</li>
-            <li><a href="./auth/google" onclick="googleLogin()">Login with Google!</a></li>
-            <li><a href="upload.html">Upload Clip</a></li>
-        </ul>
-    </div>
+        <div id="container"></div>
+        <div id="Header"><img id="imgLogo" src="theme/CorrectLogoGR_5.png"></div>
+        <!-- 'menu' id is the navigation bar -->
+        <div id="menu">
+            <!-- unordered list for the nav bar -->
+            <ul>
+                <li><a href="/">Home</li>
+                <li><a href="/profile">Profile</li>
+                <li><a href="#">About</li>
+                <li><a href="./auth/google" onclick="googleLogin()">Login with Google!</a></li>
+                <li><a href="upload.html">Upload Clip</a></li>
+            </ul>
+        </div>
 
-    <div id="clipContainer"></div>
+        <div id="clipContainer"></div>
     </div>
 </body>
 
