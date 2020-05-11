@@ -14,9 +14,11 @@
     line-height: 140px;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
 }
+
 body {
     background-color: black;
 }
+
 #imgLogo {
     position: absolute;
     top: 0px;
@@ -30,33 +32,7 @@ body {
     color: black;
     font-size: 30px;
 }
-/*
-#trending {
-    position: relative;
-    background-color: #e3f0fa;
-    width: 20%;
-    height: 400px;
-    top: 40px;
-    left: 2%;
-    text-align: center;
-    color: black;
-    border: solid black;
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-}
 
-#feed {
-    width: 60%;
-    height: 100%;
-    background-color: #e3f0fa;
-    color: black;
-    position: absolute;
-    left: 30%;
-    top: 320px;
-    text-align: center;
-    border: solid black;
-    border-width: 5px;
-}
-*/
 #PostCreator {
     width: 60%;
     height: 100px;
@@ -86,13 +62,12 @@ aside {
     width: 400px;
     height: 100%;
     z-index: 10;
-    /*    background-color: #e3f0fa;*/
     background-color: #18171c;
     color: white;
     overflow: visible;
-    /*    border: solid black;*/
     border-width: 5px;
 }
+
 span.name {
     font-size: 30px;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
@@ -101,9 +76,11 @@ span.name {
 span.email {
     font-size: 20px;
 }
+
 span.status {
     font-size: 20px;
 }
+
 #feed {
     display: flex;
     justify-content: center;
@@ -116,20 +93,11 @@ span.status {
     align-items: center;
     flex-direction: column;
     width: 664px;
-    /* margin: 10px 25% 10px 25%; */
     margin-top: 25px;
-    /* height: 100%; */
     background-color: #18171c;
-    /*   background-color: #e3f0fa;*/
     color: black;
-    /* position: absolute; */
-    /* left: 30%; */
-    /* top: 320px; */
     text-align: center;
-    /*    border: solid black;*/
     border-width: 5px;
-    /* padding-top: 50px; */
-    /* padding-right: 200px; */
     padding: 10px;
 }
 
@@ -142,7 +110,6 @@ span.status {
     align-items: center;
     justify-content: center;
     margin: auto;
-    /* width: 50%; */
     padding-top: 50px;
 }
 
@@ -160,12 +127,13 @@ span.status {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    /* min-height: 100vh; */
 }
+
 #logInTitle {
     color: white;
     font-size: 25pt;
 }
+
 #logInButton {
     -webkit-appearance: button;
     -moz-appearance: button;
