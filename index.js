@@ -9,7 +9,7 @@ var io = require('socket.io')(https);
 var port = 443;
 
 /* EJS */
-app.set("view engine", "ejs");
+app.set('view engine', 'ejs');
 
 /* google OAuth set up */
 const googleConfig = require('./OAuth/config');
@@ -90,11 +90,16 @@ io.on('connection', function (socket) {
             if (!err) {
                 var date = new Date();
                 clip.postTime = date;
+<<<<<<< HEAD
+=======
+                clip.user = UserModel.googleProfile.displayName;
+>>>>>>> origin/master
                 clip.save(function (err) {
                     console.log('Saved clip link to database' + clip);
                 });
             }
         });
+<<<<<<< HEAD
     });
 
     socket.on('create post', function (data) {
@@ -105,31 +110,44 @@ io.on('connection', function (socket) {
     socket.on('request profile page', function () {
         console.log('a user wants to request their profile');
         socket.emit('sending user profile', { data: 'Profile' });
+=======
+>>>>>>> origin/master
     });
 
     socket.on('request posts', function () {
         console.log('a user wants to see posts');
+<<<<<<< HEAD
         Clip.find().lean().exec(function (err, clips) {
             var query = JSON.stringify(clips);
             console.log(query)
             console.log('sending requested posts');
             socket.emit('receive posts', query);
         });
+=======
+        Clip.find()
+            .lean()
+            .exec(function (err, clips) {
+                var query = JSON.stringify(clips);
+                console.log(query);
+                console.log('sending requested posts');
+                socket.emit('receive posts', query);
+            });
+>>>>>>> origin/master
     });
-
-    socket.on('debug', function (msg) {
-        console.log(msg);
-    });
-
 });
 
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + 'public/index.html');
-});
+// app.get('/', function (req, res) {
+//     res.sendFile(__dirname + 'public/index.html');
+// });
 
 //authenticate user through google redirect
-app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile'] }));
+app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'] }));
 
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/auth/google' }), function (req, res) {
+    res.redirect('/');
+});
+
+<<<<<<< HEAD
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/auth/google' }),
     function (req, res) {
         res.redirect('/profile');
@@ -138,6 +156,16 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
 app.get("/profile", function (req, res) {
     res.render('profile.ejs', { user: UserModel });
     console.log("REQUEST USER: " + UserModel);
+=======
+app.get('/profile', function (req, res) {
+    res.render('profile.ejs', { user: UserModel });
+    console.log('REQUEST USER: ' + UserModel);
+});
+
+app.get('/', function (req, res) {
+    res.render('index.ejs', { user: UserModel });
+    console.log('REQUEST USER: ' + UserModel);
+>>>>>>> origin/master
 });
 
 https.listen(port, function () {

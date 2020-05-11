@@ -22,13 +22,24 @@
 
     <body>
         <% if(user == undefined) {%>
-            <h2>Not Logged In</h2>
-          <% } else { %>
-            <div id="Header"><img id="imgLogo" src="theme/GR_Logo_Final.png"></div>
+            <div id="Header"><img id="imgLogo" src="theme/CorrectLogoGR_5.png"></div>
             <div id="menu">
                 <ul>
-                    <li><a href="index.html">Home</li>
-                    <li><a href="profile.html">Profile</li>
+                    <li><a href="/">Home</li>
+                    <li><a href="/profile">Profile</li>
+                    <li><a href="#">About</li>
+                    <li><a href="./auth/google" onclick="googleLogin()">Login with Google!</a></li>
+                    <li><a href="upload.html">Upload Clip</a></li>
+                </ul>
+            </div>
+            <h2 id="noUser">Not Logged In</h2>
+          <% } else { %>
+        
+            <div id="Header"><img id="imgLogo" src="theme/CorrectLogoGR_5.png"></div>
+            <div id="menu">
+                <ul>
+                    <li><a href="/">Home</li>
+                    <li><a href="/profile">Profile</li>
                     <li><a href="#">About</li>
                     <li><a href="./auth/google" onclick="googleLogin()">Login with Google!</a></li>
                     <li><a href="upload.html">Upload Clip</a></li>
@@ -40,7 +51,7 @@
                 </div>
                 <div class = "user-info">
                     <span class = "name"><%=user.googleProfile.displayName %> <br></span>
-                    <span class = "email">joeexoctic.tv@gmail.com <br></span>
+                    <span class = "email"><%=user.googleProfile._json.email %> <br></span>
                     <span class = "status">Online <br></span>
                 </div>
                 <div class = "Search">
