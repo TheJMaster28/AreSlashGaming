@@ -94,16 +94,6 @@ io.on('connection', function (socket) {
         });
     });
 
-    socket.on('create post', function (data) {
-        console.log(data);
-        console.log('user wants to create post');
-    });
-
-    socket.on('request profile page', function () {
-        console.log('a user wants to request their profile');
-        socket.emit('sending user profile', { data: 'Profile' });
-    });
-
     socket.on('request posts', function () {
         console.log('a user wants to see posts');
         Clip.find()
@@ -114,10 +104,6 @@ io.on('connection', function (socket) {
                 console.log('sending requested posts');
                 socket.emit('receive posts', query);
             });
-    });
-
-    socket.on('debug', function (msg) {
-        console.log(msg);
     });
 });
 
