@@ -90,40 +90,16 @@ io.on('connection', function (socket) {
             if (!err) {
                 var date = new Date();
                 clip.postTime = date;
-<<<<<<< HEAD
-=======
                 clip.user = UserModel.googleProfile.displayName;
->>>>>>> origin/master
                 clip.save(function (err) {
                     console.log('Saved clip link to database' + clip);
                 });
             }
         });
-<<<<<<< HEAD
-    });
-
-    socket.on('create post', function (data) {
-        console.log(data);
-        console.log('user wants to create post');
-    });
-
-    socket.on('request profile page', function () {
-        console.log('a user wants to request their profile');
-        socket.emit('sending user profile', { data: 'Profile' });
-=======
->>>>>>> origin/master
     });
 
     socket.on('request posts', function () {
         console.log('a user wants to see posts');
-<<<<<<< HEAD
-        Clip.find().lean().exec(function (err, clips) {
-            var query = JSON.stringify(clips);
-            console.log(query)
-            console.log('sending requested posts');
-            socket.emit('receive posts', query);
-        });
-=======
         Clip.find()
             .lean()
             .exec(function (err, clips) {
@@ -132,7 +108,6 @@ io.on('connection', function (socket) {
                 console.log('sending requested posts');
                 socket.emit('receive posts', query);
             });
->>>>>>> origin/master
     });
 });
 
@@ -147,16 +122,6 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
     res.redirect('/');
 });
 
-<<<<<<< HEAD
-app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/auth/google' }),
-    function (req, res) {
-        res.redirect('/profile');
-    });
-
-app.get("/profile", function (req, res) {
-    res.render('profile.ejs', { user: UserModel });
-    console.log("REQUEST USER: " + UserModel);
-=======
 app.get('/profile', function (req, res) {
     res.render('profile.ejs', { user: UserModel });
     console.log('REQUEST USER: ' + UserModel);
@@ -165,7 +130,6 @@ app.get('/profile', function (req, res) {
 app.get('/', function (req, res) {
     res.render('index.ejs', { user: UserModel });
     console.log('REQUEST USER: ' + UserModel);
->>>>>>> origin/master
 });
 
 https.listen(port, function () {
