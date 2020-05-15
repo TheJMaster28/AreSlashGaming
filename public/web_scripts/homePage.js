@@ -1,37 +1,22 @@
 const socket = io();
 
+// tell server to request posts
 window.onload = function () {
     socket.emit('request posts');
 };
 
-function login() {
-    socket.emit('login');
-}
-
+// tell server that a user wants to login with google
 function googleLogin() {
     socket.emit('googleLogin');
 }
 
+// display query result of all the videos
 socket.on('receive posts', function (obj) {
     var query = JSON.parse(obj);
-    // socket.emit('debug', query);
-    console.log(query);
-    // for (var i = 0; i < query.length; i++) {
-    //     var obj = query[i];
-    //     var clip = $('<iframe/>');
-    //     clip.attr({
-    //         width: 560,
-    //         height: 315,
-    //         src: obj.url,
-    //         frameborder: 0,
-    //         class: 'clip'
-    //     });
-    //     $('#clipContainer').append(clip);
-    // }
 
+    // creates each html element to display the embedded clips in the query
     for (var i = query.length - 1; i >= 0; i--) {
         var obj = query[i];
-        console.log(obj);
         var div = $('<div>');
         div.attr({
             class: 'clipCard'

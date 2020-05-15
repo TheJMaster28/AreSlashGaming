@@ -1,9 +1,18 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+// dev localhost test are using https
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 var port = 3000;
+
+// used on the server for https
+// var https = require('https').createServer({
+//     key: require('fs').readFileSync('./privkey.pem'),
+//     cert: require('fs').readFileSync('./fullchain.pem')
+// }, app);
+// var io = require('socket.io')(https);
+// var port = 443;
 
 /* EJS */
 app.set('view engine', 'ejs');
@@ -80,6 +89,7 @@ io.on('connection', function (socket) {
         passport.use(googleStrategy);
     });
 
+    // post clip in the database
     socket.on('post clip', function (msg) {
         console.log('a user is posting a clip link');
         Clip.findOrCreate({ url: msg }, function (err, clip) {
@@ -95,6 +105,7 @@ io.on('connection', function (socket) {
         });
     });
 
+    // send post to client
     socket.on('request posts', function () {
         console.log('a user wants to see posts');
         Clip.find()
@@ -107,10 +118,6 @@ io.on('connection', function (socket) {
             });
     });
 });
-
-// app.get('/', function (req, res) {
-//     res.sendFile(__dirname + 'public/index.html');
-// });
 
 //authenticate user through google redirect
 app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'] }));

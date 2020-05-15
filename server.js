@@ -1,3 +1,4 @@
+// greenlock server code to get greenlock working
 'use strict';
 
 var app = require('./index.js');
@@ -11,7 +12,7 @@ require('greenlock-express')
         packageRoot: __dirname,
         configDir: './greenlock.d',
 
-        maintainerEmail: 'jon@example.com',
+        maintainerEmail: 'autogerg@gmail.com',
 
         cluster: false
     })
