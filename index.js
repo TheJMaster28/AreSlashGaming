@@ -30,6 +30,7 @@ mongoose.connection.on('error', function (err) {
     console.error('Make sure a mongoDB server is running and accessible by this application');
 });
 
+/* models for database entries */
 var User = require('./models/user');
 var Clip = require('./models/clip');
 var UserModel;
@@ -126,6 +127,7 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
     res.redirect('/');
 });
 
+//app redirects
 app.get('/profile', function (req, res) {
     res.render('profile.ejs', { user: UserModel });
     console.log('REQUEST USER: ' + UserModel);
